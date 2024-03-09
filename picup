@@ -139,7 +139,7 @@ class up:
             info=read_from(config+data,'data')['github']
             pic=read_from(file,'pic')
             headers={"Authorization": "Bearer %s"%info['token'],"Accept": "application/vnd.github+json"}
-            url='https://api.github.com/repos/%s/%s/contents/%s'%(info['user'],info['repo'],name+'.'+file.split('.')[-1])
+            url='https://api.github.com/repos/%s/%s/contents/%s/%s'%(info['user'],info['repo'],info['path'],name+'.'+file.split('.')[-1])
             r=requests.put(url,headers=headers,json={"message":name,"content":pic})
             if r.status_code==201:
                 success(json.loads(r.text)['content']['download_url'])
