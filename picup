@@ -88,7 +88,7 @@ def error(do,reason):
 def init():
     if not os.path.exists(config+data):
         os.system('mkdir -p %s'%config)
-        write_in(config+data,{'default':'github','editor':'micro','form':'@url','github':{'name':'github','token':'','user':'','repo':''}})
+        write_in(config+data,{'default':'github','editor':'micro','form':'@url','github':{'name':'github','token':'','user':'','repo':'','path':''}})
         simple('初始化完成!','感谢使用 picup, 请使用 -h 查看帮助.')
     else:
         pass
